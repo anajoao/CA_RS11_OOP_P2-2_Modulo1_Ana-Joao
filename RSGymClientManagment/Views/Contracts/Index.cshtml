@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RSGymClientManagment.Models.Contracts>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-custom">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthlyFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loyalty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contract)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthlyFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client!.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loyalty!.LoyaltyId)
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark btn-sm btn-custom-rounded" asp-action="Edit" asp-route-id="@item.ContractId">Edit</a> |
+                    <a class="btn btn-outline-primary btn-sm btn-custom-rounded" asp-action="Details" asp-route-id="@item.ContractId">Details</a> |
+                    <a class="btn btn-outline-danger btn-sm btn-custom-rounded" asp-action="Delete" asp-route-id="@item.ContractId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

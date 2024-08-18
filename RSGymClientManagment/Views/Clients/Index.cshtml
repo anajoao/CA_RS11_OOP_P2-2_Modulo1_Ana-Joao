@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RSGymClientManagment.Models.Clients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-custom">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IBAN)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IBAN)
+            </td>
+            <td>
+                <a class="btn btn-outline-dark btn-sm btn-custom-rounded" asp-action="Edit" asp-route-id="@item.ClientId">Edit</a> |
+                <a class="btn btn-outline-primary btn-sm btn-custom-rounded" asp-action="Details" asp-route-id="@item.ClientId">Details</a> |
+                <a class="btn btn-outline-danger btn-sm btn-custom-rounded" asp-action="Delete" asp-route-id="@item.ClientId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

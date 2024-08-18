@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RSGymClientManagment.Models.ContractsGymClasses>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-custom">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractId)
+            </th>
+            <th>
+                Contract
+            </th>
+            <th>
+                Gym Class
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractId)
+                </td>
+                <td>    
+                    @Html.DisplayFor(modelItem => item.Contract!.Contract)                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GymClass!.ClassName)
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark btn-sm btn-custom-rounded" asp-action="Edit" asp-route-contractId="@item.ContractId" asp-route-gymClassId="@item.GymClassId">Edit</a> |
+                    <a class="btn btn-outline-primary btn-sm btn-custom-rounded" asp-action="Details" asp-route-contractId="@item.ContractId" asp-route-gymClassId="@item.GymClassId">Details</a> |
+                    <a class="btn btn-outline-danger btn-sm btn-custom-rounded" asp-action="Delete" asp-route-contractId="@item.ContractId" asp-route-gymClassId="@item.GymClassId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

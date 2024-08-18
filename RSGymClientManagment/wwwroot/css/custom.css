@@ -1,0 +1,74 @@
+﻿.navbar-custom {
+    background-image: url('../media/wallpapergym.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+    /*cria um overlay*/
+    .navbar-custom::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+
+    .navbar-custom .container-fluid {
+        position: relative;
+        z-index: 1;
+    }
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    z-index: 2;
+}
+
+
+    .nav-link:hover {
+        font-weight: bold;
+    }
+
+.title {
+    font-weight: bold;
+}
+
+.navbar-brand img {
+    height: 80px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.btn-custom-rounded {
+    border-radius: 50px;
+}
+
+.homeImage {
+    max-width: 30%;
+    height: auto;
+    margin-top: 20px;
+}
+
+
+
+.table-custom th {
+    background-color: #778899;
+    color: white;
+    text-align: left;
+    font-weight: initial;
+}
+
+.table-custom tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+
